@@ -1,0 +1,12 @@
+{
+  "name": "inventoryiq-saas",
+  "version": "2.0.0",
+  "description": "InventoryIQ — Multi-tenant SaaS Inventory Platform for Clothing Shops",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "author": "OM",
+  "license": "MIT"
+}

@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0"/>
+  <title>InventoryIQ — Smart Inventory SaaS for Retail</title>
+  <meta name="description" content="The smartest inventory management platform for clothing shops. Scan barcodes, track stock, manage products and grow your business."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css"/>
+  <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+  <link rel="stylesheet" href="/css/style.css"/>
+</head>
+<body>
+
+<!-- LANDING PAGE -->
+<div id="landing-page" class="page">
+
+  <!-- Navbar -->
+  <nav class="land-nav">
+    <div class="land-logo">
+      <div class="land-logo-icon"><i class="fas fa-box-open"></i></div>
+      <span class="land-logo-text">InventoryIQ</span>
+    </div>
+    <div class="land-nav-links">
+      <a href="#features">Features</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#" onclick="showPage('auth');setAuthMode('login');return false">Sign in</a>
+    </div>
+    <div class="land-nav-cta">
+      <button class="btn btn-ghost-white btn-sm" onclick="showPage('auth');setAuthMode('login')">Sign In</button>
+      <button class="btn btn-primary btn-sm" onclick="showPage('auth');setAuthMode('register')">Start Free</button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="land-hero">
+    <div class="hero-badge"><i class="fas fa-bolt"></i> Built for Clothing Shops</div>
+    <h1>The <span class="hero-grad">Smartest</span> Inventory<br/>Platform for Retail</h1>
+    <p class="hero-desc">Scan barcodes, track stock in real‑time, manage products, and grow your clothing business — all from one powerful, beautifully designed dashboard.</p>
+    <div class="hero-cta">
+      <button class="btn btn-primary btn-xl" onclick="showPage('auth');setAuthMode('register')">
+        <i class="fas fa-rocket"></i> Start for Free
+      </button>
+      <button class="btn btn-outline-white btn-xl" onclick="demoLogin()">
+        <i class="fas fa-play"></i> Live Demo
+      </button>
+    </div>
+    <div class="hero-proof">
+      <div class="proof-stat"><div class="num">500+</div><div class="lbl">Active Shops</div></div>
+      <div class="proof-divider"></div>
+      <div class="proof-stat"><div class="num">1M+</div><div class="lbl">Products Tracked</div></div>
+      <div class="proof-divider"></div>
+      <div class="proof-stat"><div class="num">99.9%</div><div class="lbl">Uptime</div></div>
+      <div class="proof-divider"></div>
+      <div class="proof-stat"><div class="num">4.9★</div><div class="lbl">User Rating</div></div>
+    </div>
+    <!-- Floating mockup -->
+    <div class="hero-mockup">
+      <div class="mockup-window">
+        <div class="mockup-bar"><span></span><span></span><span></span></div>
+        <div class="mockup-body">
+          <div class="mockup-stat-row">
+            <div class="mock-stat blue"><div class="ms-num">248</div><div class="ms-lbl">Products</div></div>
+            <div class="mock-stat green"><div class="ms-num">1,847</div><div class="ms-lbl">In Stock</div></div>
+            <div class="mock-stat orange"><div class="ms-num">3</div><div class="ms-lbl">Low Stock</div></div>
+            <div class="mock-stat purple"><div class="ms-num">$42,190</div><div class="ms-lbl">Value</div></div>
+          </div>
+          <div class="mockup-bar-chart">
+            <div class="mbc-row"><div class="mbc-label">T-Shirts</div><div class="mbc-track"><div class="mbc-fill" style="width:78%"></div></div><div class="mbc-val">78</div></div>
+            <div class="mbc-row"><div class="mbc-label">Pants</div><div class="mbc-track"><div class="mbc-fill" style="width:55%"></div></div><div class="mbc-val">55</div></div>
+            <div class="mbc-row"><div class="mbc-label">Jackets</div><div class="mbc-track"><div class="mbc-fill" style="width:38%"></div></div><div class="mbc-val">38</div></div>
+            <div class="mbc-row"><div class="mbc-label">Dresses</div><div class="mbc-track"><div class="mbc-fill" style="width:29%"></div></div><div class="mbc-val">29</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trusted by -->
+  <div class="trusted-bar">
+    <span>Trusted by clothing shops worldwide</span>
+    <div class="trust-logos">
+      <span><i class="fas fa-store"></i> Threads & Co.</span>
+      <span><i class="fas fa-store"></i> Urban Wardrobe</span>
+      <span><i class="fas fa-store"></i> Style House</span>
+      <span><i class="fas fa-store"></i> Denim District</span>
+      <span><i class="fas fa-store"></i> Luxe Apparel</span>
+    </div>
+  </div>
+
+  <!-- Features -->
+  <section class="land-features" id="features">
+    <div class="section-label">Features</div>
+    <div class="section-title">Everything you need to run your shop</div>
+    <div class="section-sub">From barcode scanning to real‑time analytics, InventoryIQ gives you the tools to manage your inventory like a pro.</div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon blue"><i class="fas fa-barcode"></i></div>
+        <div class="feature-title">Barcode Scanner</div>
+        <div class="feature-desc">Scan any product barcode with your phone camera and instantly pull up stock info, price, and actions.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon green"><i class="fas fa-chart-line"></i></div>
+        <div class="feature-title">Real‑time Analytics</div>
+        <div class="feature-desc">Track sales trends, inventory value, and stock health across your entire catalog with live dashboards.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon orange"><i class="fas fa-exclamation-triangle"></i></div>
+        <div class="feature-title">Smart Alerts</div>
+        <div class="feature-desc">Never run out. Get instant low‑stock and out‑of‑stock alerts with visual indicators and notifications.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon purple"><i class="fas fa-mobile-alt"></i></div>
+        <div class="feature-title">Mobile First</div>
+        <div class="feature-desc">Fully responsive design optimized for phones. Manage your inventory on any device, anywhere, anytime.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon indigo"><i class="fas fa-store"></i></div>
+        <div class="feature-title">Multi‑Shop Ready</div>
+        <div class="feature-desc">Each shop gets its own isolated data, settings, and subscription plan. Perfect for franchises.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon rose"><i class="fas fa-history"></i></div>
+        <div class="feature-title">Activity Log</div>
+        <div class="feature-desc">Full audit trail of every sale, restock, product change, and login. Never lose track of changes.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="land-how">
+    <div class="section-label">How It Works</div>
+    <div class="section-title">Up and running in minutes</div>
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="how-num">1</div>
+        <div class="how-icon"><i class="fas fa-user-plus"></i></div>
+        <div class="how-title">Create Your Account</div>
+        <div class="how-desc">Sign up free in 30 seconds. No credit card required.</div>
+      </div>
+      <div class="how-arrow"><i class="fas fa-chevron-right"></i></div>
+      <div class="how-step">
+        <div class="how-num">2</div>
+        <div class="how-icon"><i class="fas fa-box"></i></div>
+        <div class="how-title">Add Your Products</div>
+        <div class="how-desc">Import or add products with images, prices, and stock.</div>
+      </div>
+      <div class="how-arrow"><i class="fas fa-chevron-right"></i></div>
+      <div class="how-step">
+        <div class="how-num">3</div>
+        <div class="how-icon"><i class="fas fa-barcode"></i></div>
+        <div class="how-title">Start Scanning</div>
+        <div class="how-desc">Use your phone to scan and track in real‑time.</div>
+      </div>
+      <div class="how-arrow"><i class="fas fa-chevron-right"></i></div>
+      <div class="how-step">
+        <div class="how-num">4</div>
+        <div class="how-icon"><i class="fas fa-chart-line"></i></div>
+        <div class="how-title">Grow Your Business</div>
+        <div class="how-desc">Use analytics and alerts to optimize your inventory.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="land-pricing" id="pricing">
+    <div class="section-label">Pricing</div>
+    <div class="section-title">Simple, transparent pricing</div>
+    <div class="section-sub">No hidden fees. No surprises. Cancel anytime.</div>
+    <div class="pricing-grid">
+
+      <div class="pricing-card">
+        <div class="pricing-name">Starter</div>
+        <div class="pricing-price">$0<span>/month</span></div>
+        <div class="pricing-desc">Perfect for getting started</div>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li><i class="fas fa-check"></i> Up to 50 products</li>
+          <li><i class="fas fa-check"></i> Barcode scanner</li>
+          <li><i class="fas fa-check"></i> Basic dashboard</li>
+          <li><i class="fas fa-check"></i> 1 user</li>
+          <li><i class="fas fa-check"></i> Sales tracking</li>
+          <li class="text-muted"><i class="fas fa-times"></i> Analytics & reports</li>
+          <li class="text-muted"><i class="fas fa-times"></i> Data export</li>
+        </ul>
+        <button class="btn btn-outline-primary btn-full pricing-cta" onclick="showPage('auth');setAuthMode('register')">Get Started Free</button>
+      </div>
+
+      <div class="pricing-card popular">
+        <div class="popular-tag">⚡ Most Popular</div>
+        <div class="pricing-name">Pro</div>
+        <div class="pricing-price">$29<span>/month</span></div>
+        <div class="pricing-desc">For growing shops</div>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li><i class="fas fa-check"></i> Up to 500 products</li>
+          <li><i class="fas fa-check"></i> Advanced analytics</li>
+          <li><i class="fas fa-check"></i> Activity log & exports</li>
+          <li><i class="fas fa-check"></i> Up to 5 users</li>
+          <li><i class="fas fa-check"></i> Priority support</li>
+          <li><i class="fas fa-check"></i> Revenue reports</li>
+          <li><i class="fas fa-check"></i> Low-stock alerts</li>
+        </ul>
+        <button class="btn btn-white-primary btn-full pricing-cta" onclick="showPage('auth');setAuthMode('register')">Start Pro Trial</button>
+      </div>
+
+      <div class="pricing-card">
+        <div class="pricing-name">Business</div>
+        <div class="pricing-price">$79<span>/month</span></div>
+        <div class="pricing-desc">For established businesses</div>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li><i class="fas fa-check"></i> Unlimited products</li>
+          <li><i class="fas fa-check"></i> Everything in Pro</li>
+          <li><i class="fas fa-check"></i> Up to 20 users</li>
+          <li><i class="fas fa-check"></i> Custom integrations</li>
+          <li><i class="fas fa-check"></i> Dedicated support</li>
+          <li><i class="fas fa-check"></i> SLA guarantee</li>
+          <li><i class="fas fa-check"></i> Custom branding</li>
+        </ul>
+        <button class="btn btn-outline-primary btn-full pricing-cta" onclick="showPage('auth');setAuthMode('register')">Contact Sales</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="land-testimonials">
+    <div class="section-label">Testimonials</div>
+    <div class="section-title">Loved by shop owners</div>
+    <div class="testimonials-grid">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">"InventoryIQ transformed how we manage stock. The barcode scanner alone saves us 2 hours a day. Absolutely love it!"</div>
+        <div class="testi-author"><div class="testi-avatar">S</div><div><div class="testi-name">Sarah Mitchell</div><div class="testi-role">Owner, Urban Threads NYC</div></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">"The dashboard is incredibly intuitive. I can see exactly what's selling and what needs restocking at a glance. Game changer."</div>
+        <div class="testi-author"><div class="testi-avatar">J</div><div><div class="testi-name">James Okafor</div><div class="testi-role">Manager, Style House Lagos</div></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">"We run 3 boutiques and InventoryIQ keeps everything organized. The multi-tenant system is exactly what we needed."</div>
+        <div class="testi-author"><div class="testi-avatar">P</div><div><div class="testi-name">Priya Sharma</div><div class="testi-role">CEO, Denim District</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="land-cta-banner">
+    <div class="cta-banner-inner">
+      <div class="cta-banner-text">
+        <h2>Ready to take control of your inventory?</h2>
+        <p>Join 500+ clothing shops already using InventoryIQ. Free to start, no credit card required.</p>
+      </div>
+      <div class="cta-banner-btns">
+        <button class="btn btn-primary btn-lg" onclick="showPage('auth');setAuthMode('register')"><i class="fas fa-rocket"></i> Start Free Today</button>
+        <button class="btn btn-outline-white btn-lg" onclick="demoLogin()"><i class="fas fa-play"></i> Try Demo</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="land-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="land-logo">
+          <div class="land-logo-icon sm"><i class="fas fa-box-open"></i></div>
+          <span class="land-logo-text">InventoryIQ</span>
+        </div>
+        <p>The smart inventory platform for clothing shops. Scan, track, sell.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <div class="footer-col-title">Product</div>
+          <a href="#features">Features</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#" onclick="demoLogin();return false">Live Demo</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Company</div>
+          <a href="#">About</a>
+          <a href="#">Blog</a>
+          <a href="#">Contact</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Legal</div>
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Security</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2024 InventoryIQ. Built with <i class="fas fa-heart" style="color:#ef4444"></i> by <strong>OM</strong></div>
+      <div class="footer-socials">
+        <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- AUTH PAGE -->
+<div id="auth-page" class="page">
+  <div class="auth-left">
+    <div class="auth-glow auth-glow-1"></div>
+    <div class="auth-glow auth-glow-2"></div>
+    <div class="auth-left-inner">
+      <div class="auth-left-logo">
+        <div class="logo-icon"><i class="fas fa-box-open"></i></div>
+        <span>InventoryIQ</span>
+      </div>
+      <h2 id="auth-left-title">Welcome back</h2>
+      <p id="auth-left-sub">Your shop dashboard is one click away. Manage inventory, track sales, and grow your business.</p>
+      <ul class="auth-left-features">
+        <li><i class="fas fa-check-circle"></i> Real-time barcode scanning</li>
+        <li><i class="fas fa-check-circle"></i> Multi-tenant shop isolation</li>
+        <li><i class="fas fa-check-circle"></i> Sales analytics & alerts</li>
+        <li><i class="fas fa-check-circle"></i> Activity logs & audit trail</li>
+        <li><i class="fas fa-check-circle"></i> Plan-based access control</li>
+      </ul>
+      <div class="auth-left-stats">
+        <div><div class="als-num">500+</div><div class="als-lbl">Shops</div></div>
+        <div><div class="als-num">1M+</div><div class="als-lbl">Products</div></div>
+        <div><div class="als-num">99.9%</div><div class="als-lbl">Uptime</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="auth-right">
+    <div class="auth-form-wrap">
+      <!-- Login Form -->
+      <div id="login-form-wrap">
+        <h1 class="auth-title">Sign in to your account</h1>
+        <p class="auth-sub">Don't have an account? <a href="#" onclick="setAuthMode('register');return false">Create one free</a></p>
+        <div class="demo-creds">
+          <i class="fas fa-info-circle"></i>
+          Demo: <strong>owner@demo.com</strong> / <strong>Demo@123</strong>
+          &nbsp;|&nbsp;
+          Admin: <strong>admin@inventoryiq.com</strong> / <strong>Admin@123</strong>
+        </div>
+        <form id="login-form" class="auth-form" novalidate style="margin-top:20px">
+          <div class="form-group">
+            <label class="form-label">Email address</label>
+            <input type="email" id="l-email" class="form-input" placeholder="you@example.com" autocomplete="email"/>
+            <span class="field-err" id="l-email-err"></span>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Password</label>
+            <div class="input-group">
+              <input type="password" id="l-password" class="form-input" placeholder="Your password" autocomplete="current-password"/>
+              <button type="button" class="input-addon" id="l-toggle-pass"><i class="fas fa-eye" id="l-eye-icon"></i></button>
+            </div>
+            <span class="field-err" id="l-pass-err"></span>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full" id="login-submit-btn">
+            <span>Sign In</span><i class="fas fa-arrow-right"></i>
+          </button>
+          <p style="text-align:center;font-size:.8125rem;color:var(--gray-400)">
+            <a href="#" onclick="showPage('landing');return false" style="color:var(--gray-400)">← Back to home</a>
+          </p>
+        </form>
+      </div>
+
+      <!-- Register Form -->
+      <div id="register-form-wrap" style="display:none">
+        <h1 class="auth-title">Create your account</h1>
+        <p class="auth-sub">Already have an account? <a href="#" onclick="setAuthMode('login');return false">Sign in</a></p>
+        <form id="register-form" class="auth-form" novalidate style="margin-top:20px">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Your Name <span class="required">*</span></label>
+              <input type="text" id="r-name" class="form-input" placeholder="Alex Johnson"/>
+              <span class="field-err" id="r-name-err"></span>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Shop Name <span class="required">*</span></label>
+              <input type="text" id="r-shop" class="form-input" placeholder="My Clothing Store"/>
+              <span class="field-err" id="r-shop-err"></span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email address <span class="required">*</span></label>
+            <input type="email" id="r-email" class="form-input" placeholder="you@example.com"/>
+            <span class="field-err" id="r-email-err"></span>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Password <span class="required">*</span></label>
+            <div class="input-group">
+              <input type="password" id="r-password" class="form-input" placeholder="Min. 6 characters"/>
+              <button type="button" class="input-addon" id="r-toggle-pass"><i class="fas fa-eye" id="r-eye-icon"></i></button>
+            </div>
+            <span class="field-err" id="r-pass-err"></span>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full" id="register-submit-btn">
+            <i class="fas fa-rocket"></i><span>Create Account — It's Free</span>
+          </button>
+          <p style="text-align:center;font-size:.75rem;color:var(--gray-400);margin-top:4px">By signing up, you agree to our Terms & Privacy Policy</p>
+          <p style="text-align:center;font-size:.8125rem;color:var(--gray-400)">
+            <a href="#" onclick="showPage('landing');return false" style="color:var(--gray-400)">← Back to home</a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ONBOARDING PAGE -->
+<div id="onboarding-page" class="page">
+  <div class="onboard-wrap">
+    <div class="onboard-logo">
+      <div class="logo-icon"><i class="fas fa-box-open"></i></div>
+      <span>InventoryIQ</span>
+    </div>
+    <div class="onboard-steps">
+      <div class="onboard-step active" id="ob-step-1">
+        <div class="step-dot active" id="ob-dot-1">1</div>
+        <span class="step-label">Shop Info</span>
+      </div>
+      <div class="step-connector" id="ob-conn-1"></div>
+      <div class="onboard-step" id="ob-step-2">
+        <div class="step-dot" id="ob-dot-2">2</div>
+        <span class="step-label">Add Products</span>
+      </div>
+      <div class="step-connector" id="ob-conn-2"></div>
+      <div class="onboard-step" id="ob-step-3">
+        <div class="step-dot" id="ob-dot-3">3</div>
+        <span class="step-label">All Done!</span>
+      </div>
+    </div>
+
+    <!-- Step 1 -->
+    <div class="onboard-card" id="ob-panel-1">
+      <div class="onboard-card-title">Set up your shop 🏪</div>
+      <div class="onboard-card-sub">Tell us a bit about your store so we can personalize your experience.</div>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Phone Number</label>
+            <input type="tel" id="ob-phone" class="form-input" placeholder="+1 555-0100"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Currency</label>
+            <select id="ob-currency" class="form-input">
+              <option value="USD">USD — US Dollar</option>
+              <option value="EUR">EUR — Euro</option>
+              <option value="GBP">GBP — British Pound</option>
+              <option value="INR">INR — Indian Rupee</option>
+              <option value="PKR">PKR — Pakistani Rupee</option>
+              <option value="AED">AED — UAE Dirham</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Shop Address</label>
+          <input type="text" id="ob-address" class="form-input" placeholder="123 Fashion Ave, New York"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Shop Logo URL <span style="color:var(--gray-400);font-weight:400">(optional)</span></label>
+          <input type="url" id="ob-logo" class="form-input" placeholder="https://..."/>
+        </div>
+        <button class="btn btn-primary btn-full" id="ob-step1-btn" onclick="obStep1Submit()">
+          Continue <i class="fas fa-arrow-right"></i>
+        </button>
+        <button class="btn btn-ghost btn-full" onclick="skipOnboarding()">Skip for now</button>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="onboard-card" id="ob-panel-2" style="display:none">
+      <div class="onboard-card-title">Add your first product 📦</div>
+      <div class="onboard-card-sub">Let's add one product to get you started. You can add more anytime from the dashboard.</div>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Product Name <span class="required">*</span></label>
+            <input type="text" id="ob-prod-name" class="form-input" placeholder="Classic White Tee"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Price <span class="required">*</span></label>
+            <input type="number" id="ob-prod-price" class="form-input" placeholder="29.99" step="0.01" min="0"/>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Category</label>
+            <input type="text" id="ob-prod-cat" class="form-input" placeholder="T-Shirts"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Initial Stock</label>
+            <input type="number" id="ob-prod-stock" class="form-input" placeholder="10" min="0"/>
+          </div>
+        </div>
+        <div style="display:flex;gap:10px">
+          <button class="btn btn-primary btn-full" onclick="obStep2Submit()">
+            <i class="fas fa-plus"></i> Add & Continue
+          </button>
+          <button class="btn btn-ghost" onclick="skipOnboarding()">Skip</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="onboard-card" id="ob-panel-3" style="display:none;text-align:center">
+      <div style="font-size:3.5rem;margin-bottom:16px">🎉</div>
+      <div class="onboard-card-title">You're all set!</div>
+      <div class="onboard-card-sub">Your shop is ready. Start managing your inventory like a pro.</div>
+      <button class="btn btn-primary btn-lg" style="margin-top:20px" onclick="goToDashboard()">
+        <i class="fas fa-chart-line"></i> Go to Dashboard
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN APP PAGE - Simplified version (the full app.js will render the rest dynamically) -->
+<div id="app-page" class="page">
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-logo">
+        <div class="logo-icon sm"><i class="fas fa-box-open"></i></div>
+        <span class="sidebar-brand" id="sidebar-brand">InventoryIQ</span>
+      </div>
+      <button class="sidebar-close" id="sidebar-close"><i class="fas fa-times"></i></button>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">Main</div>
+      <a href="#" class="nav-item active" data-tab="dashboard"><i class="fas fa-chart-line"></i><span>Dashboard</span></a>
+      <a href="#" class="nav-item" data-tab="products"><i class="fas fa-tags"></i><span>Products</span><span class="nav-badge" id="nb-products" style="display:none">0</span></a>
+      <a href="#" class="nav-item" data-tab="scanner"><i class="fas fa-barcode"></i><span>Scanner</span></a>
+      <a href="#" class="nav-item" data-tab="stock"><i class="fas fa-boxes"></i><span>Stock</span><span class="nav-badge red" id="nb-lowstock" style="display:none">0</span></a>
+      <a href="#" class="nav-item" data-tab="activity"><i class="fas fa-history"></i><span>Activity</span></a>
+      <div class="nav-section-label">Account</div>
+      <a href="#" class="nav-item" data-tab="billing"><i class="fas fa-credit-card"></i><span>Billing & Plans</span></a>
+      <a href="#" class="nav-item" data-tab="settings"><i class="fas fa-cog"></i><span>Settings</span></a>
+      <a href="#" class="nav-item" id="admin-nav-item" style="display:none" data-tab="admin"><i class="fas fa-shield-alt"></i><span>Admin Panel</span><span class="nav-badge purple">SA</span></a>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <div class="plan-widget">
+        <div class="plan-widget-inner">
+          <div class="plan-widget-top"><div class="plan-widget-label">Current Plan</div><span class="plan-badge" id="sb-plan-name">Starter</span></div>
+          <div class="plan-progress-wrap" id="plan-widget-bar-wrap"><div class="plan-progress-bar" id="plan-widget-bar" style="width:0%"></div></div>
+          <div class="plan-widget-hint" id="plan-widget-hint">0 / 50 products</div>
+          <a href="#" class="plan-upgrade-link" onclick="navigateTab('billing');return false"><i class="fas fa-arrow-up"></i> Upgrade Plan</a>
+        </div>
+      </div>
+      <div class="sidebar-user">
+        <div class="sidebar-avatar" id="sb-avatar">O</div>
+        <div class="sidebar-user-info"><div class="sidebar-user-name" id="sb-user-name">Loading...</div><div class="sidebar-user-role" id="sb-user-role">Owner</div></div>
+        <button class="sidebar-logout-btn" id="logout-btn" title="Logout"><i class="fas fa-sign-out-alt"></i></button>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></button>
+        <div><div class="page-title" id="page-title">Dashboard</div><span class="page-subtitle" id="page-subtitle">Your shop overview</span></div>
+      </div>
+      <div class="topbar-right">
+        <button class="topbar-btn" id="refresh-btn" title="Refresh"><i class="fas fa-sync-alt"></i></button>
+        <button class="btn btn-primary btn-sm" id="add-product-btn"><i class="fas fa-plus"></i><span class="btn-text-hide">Add Product</span></button>
+      </div>
+    </header>
+
+    <!-- DASHBOARD -->
+    <section class="tab-content active" id="tab-dashboard">
+      <div class="stats-grid">
+        <div class="stat-card blue"><div class="stat-icon"><i class="fas fa-tags"></i></div><div class="stat-info"><span class="stat-label">Total Products</span><span class="stat-value" id="s-products">—</span></div></div>
+        <div class="stat-card green"><div class="stat-icon"><i class="fas fa-cubes"></i></div><div class="stat-info"><span class="stat-label">Total Stock</span><span class="stat-value" id="s-stock">—</span></div></div>
+        <div class="stat-card orange"><div class="stat-icon"><i class="fas fa-exclamation-triangle"></i></div><div class="stat-info"><span class="stat-label">Low Stock</span><span class="stat-value" id="s-low">—</span></div></div>
+        <div class="stat-card red"><div class="stat-icon"><i class="fas fa-times-circle"></i></div><div class="stat-info"><span class="stat-label">Out of Stock</span><span class="stat-value" id="s-out">—</span></div></div>
+        <div class="stat-card purple"><div class="stat-icon"><i class="fas fa-dollar-sign"></i></div><div class="stat-info"><span class="stat-label">Inventory Value</span><span class="stat-value" id="s-value">—</span></div></div>
+        <div class="stat-card indigo"><div class="stat-icon"><i class="fas fa-shopping-bag"></i></div><div class="stat-info"><span class="stat-label">Total Sales</span><span class="stat-value" id="s-sales">—</span></div></div>
+      </div>
+
+      <div class="card plan-usage-card" id="plan-usage-card">
+        <div class="card-header"><div class="card-title"><i class="fas fa-layer-group text-purple"></i> Plan Usage</div><button class="btn btn-primary btn-sm" onclick="navigateTab('billing')"><i class="fas fa-arrow-up"></i> Upgrade</button></div>
+        <div class="card-body"><div class="plan-usage-row"><span class="plan-usage-hint" id="plan-usage-hint">You're on the <strong>Starter</strong> plan</span><span class="plan-usage-count" id="plan-usage-text">0 / 50</span></div><div class="progress-bar-wrap"><div class="progress-bar" id="plan-usage-bar" style="width:0%"></div></div></div>
+      </div>
+
+      <div class="dash-grid">
+        <div class="card"><div class="card-header"><div class="card-title"><i class="fas fa-exclamation-circle" style="color:var(--warning)"></i> Low Stock</div><span class="badge badge-orange" id="d-low-badge">0</span></div><div class="card-body"><div id="d-low-list" class="alert-list"><div class="empty-state sm"><i class="fas fa-check-circle"></i><p>All stocked up!</p></div></div></div></div>
+        <div class="card"><div class="card-header"><div class="card-title"><i class="fas fa-times-circle" style="color:var(--danger)"></i> Out of Stock</div><span class="badge badge-red" id="d-out-badge">0</span></div><div class="card-body"><div id="d-out-list" class="alert-list"><div class="empty-state sm"><i class="fas fa-check-circle"></i><p>All good!</p></div></div></div></div>
+        <div class="card"><div class="card-header"><div class="card-title"><i class="fas fa-folder" style="color:var(--info)"></i> Categories</div></div><div class="card-body"><div id="d-cats" class="cat-list"><div class="loading-state"><i class="fas fa-spinner fa-spin"></i> Loading...</div></div></div></div>
+        <div class="card"><div class="card-header"><div class="card-title"><i class="fas fa-history" style="color:var(--purple)"></i> Recent Activity</div><button class="card-action" onclick="navigateTab('activity')">View All →</button></div><div class="card-body" style="padding:0 20px"><div id="d-activity" class="activity-feed"><div class="loading-state"><i class="fas fa-spinner fa-spin"></i> Loading...</div></div></div></div>
+      </div>
+
+      <div class="card"><div class="card-header"><div class="card-title"><i class="fas fa-trophy" style="color:var(--warning)"></i> Product Overview</div><button class="card-action" onclick="navigateTab('products')">View All →</button></div><div class="card-body no-pad"><div class="table-wrap"><table class="data-table"><thead><tr><th>Product</th><th>Category</th><th>Price</th><th>Stock</th><th>Status</th><th>Action</th></tr></thead><tbody id="dash-products-tbody"><tr><td colspan="6" class="tbl-empty"><i class="fas fa-spinner fa-spin"></i> Loading...</td></tr></tbody></table></div></div></div>
+    </section>
+
+    <!-- Other tabs will be rendered by app.js -->
+    <section class="tab-content" id="tab-products"><div class="loading-state">Loading products...</div></section>
+    <section class="tab-content" id="tab-scanner"><div class="loading-state">Loading scanner...</div></section>
+    <section class="tab-content" id="tab-stock"><div class="loading-state">Loading stock...</div></section>
+    <section class="tab-content" id="tab-activity"><div class="loading-state">Loading activity...</div></section>
+    <section class="tab-content" id="tab-billing"><div class="loading-state">Loading billing...</div></section>
+    <section class="tab-content" id="tab-settings"><div class="loading-state">Loading settings...</div></section>
+    <section class="tab-content" id="tab-admin"><div class="loading-state">Loading admin panel...</div></section>
+  </div>
+</div>
+
+<!-- MODALS -->
+<div class="modal-overlay" id="product-modal"><div class="modal"><div class="modal-header"><div class="modal-title" id="pm-title">Add Product</div><button class="modal-close" onclick="closeModal('product-modal')"><i class="fas fa-times"></i></button></div><div class="modal-body"><input type="hidden" id="pm-id"/><div class="form-row"><div class="form-group"><label class="form-label">Name <span class="required">*</span></label><input type="text" id="pm-name" class="form-input"/><span class="field-err" id="pm-name-err"></span></div><div class="form-group"><label class="form-label">Price ($) <span class="required">*</span></label><input type="number" id="pm-price" class="form-input" step="0.01"/><span class="field-err" id="pm-price-err"></span></div></div><div class="form-row"><div class="form-group"><label class="form-label">Category</label><input type="text" id="pm-category" class="form-input" list="cat-list"/><datalist id="cat-list"><option value="T-Shirts"><option value="Pants"><option value="Dresses"><option value="Hoodies"><option value="Jackets"></datalist></div><div class="form-group"><label class="form-label">Size</label><select id="pm-size" class="form-input"><option value="XS">XS</option><option value="S">S</option><option value="M" selected>M</option><option value="L">L</option><option value="XL">XL</option></select></div></div><div class="form-row"><div class="form-group"><label class="form-label">Barcode</label><input type="text" id="pm-barcode" class="form-input"/></div><div class="form-group"><label class="form-label">Stock Qty</label><input type="number" id="pm-stock" class="form-input" value="0"/></div></div><div class="form-group"><label class="form-label">Image URL</label><input type="url" id="pm-image" class="form-input"/><div class="img-preview-wrap" id="pm-img-preview-wrap" style="display:none"><img id="pm-img-preview" class="img-preview"/></div></div></div><div class="modal-footer"><button class="btn btn-secondary" onclick="closeModal('product-modal')">Cancel</button><button class="btn btn-primary" id="pm-save-btn"><i class="fas fa-save"></i> Save</button></div></div></div>
+
+<div class="modal-overlay" id="delete-modal"><div class="modal modal-sm"><div class="modal-header"><div class="modal-title">Delete Product</div><button class="modal-close" onclick="closeModal('delete-modal')"><i class="fas fa-times"></i></button></div><div class="modal-body"><div class="confirm-icon danger"><i class="fas fa-trash-alt"></i></div><div class="confirm-text">Delete <strong id="del-prod-name">this product</strong>?</div><div class="confirm-sub">This action cannot be undone.</div></div><div class="modal-footer"><button class="btn btn-secondary" onclick="closeModal('delete-modal')">Cancel</button><button class="btn btn-danger" id="del-confirm-btn"><i class="fas fa-trash"></i> Delete</button></div></div></div>
+
+<div class="modal-overlay" id="stock-modal"><div class="modal modal-sm"><div class="modal-header"><div class="modal-title" id="stk-modal-title">Adjust Stock</div><button class="modal-close" onclick="closeModal('stock-modal')"><i class="fas fa-times"></i></button></div><div class="modal-body"><input type="hidden" id="stk-modal-id"/><div class="stk-product-name" id="stk-modal-name"></div><div class="form-group" style="margin-top:14px"><label class="form-label">Quantity</label><input type="number" id="stk-modal-qty" class="form-input" value="1" min="1"/></div></div><div class="modal-footer"><button class="btn btn-secondary" onclick="closeModal('stock-modal')">Cancel</button><button class="btn btn-success" id="stk-modal-confirm"><i class="fas fa-check"></i> Confirm</button></div></div></div>
+
+<div class="modal-overlay" id="upgrade-modal"><div class="modal modal-sm"><div class="modal-header"><div class="modal-title">Confirm Plan Upgrade</div><button class="modal-close" onclick="closeModal('upgrade-modal')"><i class="fas fa-times"></i></button></div><div class="modal-body"><div style="text-align:center;font-size:2.5rem;margin-bottom:8px">🚀</div><div class="confirm-text">Upgrade to <strong id="upgrade-plan-name">Pro</strong>?</div><div class="confirm-sub" id="upgrade-plan-price">$29/month</div></div><div class="modal-footer"><button class="btn btn-secondary" onclick="closeModal('upgrade-modal')">Cancel</button><button class="btn btn-primary" id="upgrade-confirm-btn"><i class="fas fa-arrow-up"></i> Upgrade Now</button></div></div></div>
+
+<div class="toast-wrap" id="toast-wrap"></div>
+
+<script src="/js/app.js"></script>
+</body>
+</html>
